@@ -88,6 +88,10 @@
             <groupId>com.example</groupId>
             <artifactId>s-pay-mall-ddd-market-infrastructure</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>s-pay-mall-ddd-market-domain</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

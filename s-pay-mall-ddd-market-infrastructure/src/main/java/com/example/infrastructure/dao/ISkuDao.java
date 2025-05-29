@@ -1,20 +1,18 @@
 package com.example.infrastructure.dao;
 
 import com.example.infrastructure.dao.po.GroupBuyActivity;
+import com.example.infrastructure.dao.po.Sku;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
 
 /**
  * @Author cxj
- * @Date 2025/5/22 13:36
+ * @Date 2025/5/26 16:56 拼团活动Dao
  * @Description:
  */
-
 @Mapper
-public interface IGroupBuyActivityDao {
+public interface ISkuDao {
 
-    List<GroupBuyActivity> queryGroupBuyActivityList();
+    Sku querySkuByGoodsId(String goodsId);
 
     GroupBuyActivity queryValidGroupBuyActivity(GroupBuyActivity groupBuyActivityReq);
 
