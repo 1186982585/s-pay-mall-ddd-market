@@ -1186,3 +1186,60 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 25-05-29.14:37:48.345 [main            ] INFO  IIndexGroupBuyMarketServiceTest - 返回结果:{"deductionPrice":90.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
 25-05-29.14:37:48.356 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
 25-05-29.14:37:48.359 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+25-05-29.15:48:56.617 [main            ] INFO  GroupBuyDiscountDaoTest - Starting GroupBuyDiscountDaoTest using Java 1.8.0_302 on Spring_Sky with PID 89416 (started by 15997 in D:\JavaProjects\cxj-project\s-pay-mall-ddd-market\s-pay-mall-ddd-market-app)
+25-05-29.15:48:56.617 [main            ] INFO  GroupBuyDiscountDaoTest - The following 1 profile is active: "dev"
+25-05-29.15:48:59.436 [main            ] INFO  GroupBuyDiscountDaoTest - Started GroupBuyDiscountDaoTest in 3.296 seconds (JVM running for 4.493)
+25-05-29.15:48:59.735 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+25-05-29.15:49:00.672 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+25-05-29.15:49:00.735 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+25-05-29.15:49:00.738 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+25-05-29.15:52:32.346 [main            ] INFO  GroupBuyDiscountDaoTest - Starting GroupBuyDiscountDaoTest using Java 1.8.0_302 on Spring_Sky with PID 77424 (started by 15997 in D:\JavaProjects\cxj-project\s-pay-mall-ddd-market\s-pay-mall-ddd-market-app)
+25-05-29.15:52:32.348 [main            ] INFO  GroupBuyDiscountDaoTest - The following 1 profile is active: "dev"
+25-05-29.15:52:35.404 [main            ] INFO  GroupBuyDiscountDaoTest - Started GroupBuyDiscountDaoTest in 3.708 seconds (JVM running for 5.15)
+25-05-29.15:52:35.629 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+25-05-29.15:52:36.646 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+25-05-29.15:52:36.908 [main            ] INFO  GroupBuyDiscountDaoTest - 测试结果:[{"createTime":1733538015000,"discountDesc":"直减优惠20元","discountId":25120207,"discountName":"直减优惠20元","discountType":0,"id":1,"marketExpr":"20","marketPlan":"ZJ","updateTime":1734840585000},{"createTime":1733538015000,"discountDesc":"满减优惠100-10元","discountId":25120208,"discountName":"满减优惠100-10元","discountType":0,"id":2,"marketExpr":"100,10","marketPlan":"MJ","updateTime":1734840587000},{"createTime":1733538015000,"discountDesc":"折扣优惠8折","discountId":25120209,"discountName":"折扣优惠8折","discountType":0,"id":4,"marketExpr":"0.8","marketPlan":"ZK","updateTime":1734840696000},{"createTime":1733538015000,"discountDesc":"N元购买优惠","discountId":25120210,"discountName":"N元购买优惠","discountType":0,"id":5,"marketExpr":"1.99","marketPlan":"N","updateTime":1734840699000}]
+25-05-29.15:52:36.920 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+25-05-29.15:52:36.935 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+25-05-29.15:52:56.220 [main            ] INFO  IIndexGroupBuyMarketServiceTest - Starting IIndexGroupBuyMarketServiceTest using Java 1.8.0_302 on Spring_Sky with PID 78676 (started by 15997 in D:\JavaProjects\cxj-project\s-pay-mall-ddd-market\s-pay-mall-ddd-market-app)
+25-05-29.15:52:56.221 [main            ] INFO  IIndexGroupBuyMarketServiceTest - The following 1 profile is active: "dev"
+25-05-29.15:52:58.975 [main            ] INFO  IIndexGroupBuyMarketServiceTest - Started IIndexGroupBuyMarketServiceTest in 3.203 seconds (JVM running for 4.369)
+25-05-29.15:52:59.364 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:52:59.400 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+25-05-29.15:53:00.379 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+25-05-29.15:53:00.435 [main            ] INFO  MarketNode             - 拼团商品查询试算服务-MarketNode userId:xyf 异步线程加载数据「GroupBuyActivityDiscountVO、SkuVO」完成
+25-05-29.15:53:00.436 [main            ] INFO  MarketNode             - 拼团商品查询试算服务-MarketNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:53:00.436 [main            ] INFO  ZJCalculateService     - 优惠策略折扣计算:0
+25-05-29.15:53:00.436 [main            ] INFO  EndNode                - 拼团商品查询试算服务-EndNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:53:00.437 [main            ] INFO  IIndexGroupBuyMarketServiceTest - 请求参数:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:53:00.444 [main            ] INFO  IIndexGroupBuyMarketServiceTest - 返回结果:{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+25-05-29.15:53:00.454 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+25-05-29.15:53:00.459 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+25-05-29.15:53:40.043 [main            ] INFO  IIndexGroupBuyMarketServiceTest - Starting IIndexGroupBuyMarketServiceTest using Java 1.8.0_302 on Spring_Sky with PID 82476 (started by 15997 in D:\JavaProjects\cxj-project\s-pay-mall-ddd-market\s-pay-mall-ddd-market-app)
+25-05-29.15:53:40.044 [main            ] INFO  IIndexGroupBuyMarketServiceTest - The following 1 profile is active: "dev"
+25-05-29.15:53:42.810 [main            ] INFO  IIndexGroupBuyMarketServiceTest - Started IIndexGroupBuyMarketServiceTest in 3.24 seconds (JVM running for 4.357)
+25-05-29.15:53:43.228 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:53:43.277 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+25-05-29.15:53:44.174 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+25-05-29.15:53:44.236 [main            ] INFO  MarketNode             - 拼团商品查询试算服务-MarketNode userId:xyf 异步线程加载数据「GroupBuyActivityDiscountVO、SkuVO」完成
+25-05-29.15:53:44.236 [main            ] INFO  MarketNode             - 拼团商品查询试算服务-MarketNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:53:44.236 [main            ] INFO  ZKCalculateService     - 优惠策略折扣计算:0
+25-05-29.15:53:44.236 [main            ] INFO  EndNode                - 拼团商品查询试算服务-EndNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:53:44.239 [main            ] INFO  IIndexGroupBuyMarketServiceTest - 请求参数:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:53:44.245 [main            ] INFO  IIndexGroupBuyMarketServiceTest - 返回结果:{"deductionPrice":80.000,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+25-05-29.15:53:44.254 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+25-05-29.15:53:44.258 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+25-05-29.15:57:16.800 [main            ] INFO  IIndexGroupBuyMarketServiceTest - Starting IIndexGroupBuyMarketServiceTest using Java 1.8.0_302 on Spring_Sky with PID 85940 (started by 15997 in D:\JavaProjects\cxj-project\s-pay-mall-ddd-market\s-pay-mall-ddd-market-app)
+25-05-29.15:57:16.801 [main            ] INFO  IIndexGroupBuyMarketServiceTest - The following 1 profile is active: "dev"
+25-05-29.15:57:19.365 [main            ] INFO  IIndexGroupBuyMarketServiceTest - Started IIndexGroupBuyMarketServiceTest in 3.029 seconds (JVM running for 4.174)
+25-05-29.15:57:19.771 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:57:19.808 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+25-05-29.15:57:20.883 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+25-05-29.15:57:20.945 [main            ] INFO  MarketNode             - 拼团商品查询试算服务-MarketNode userId:xyf 异步线程加载数据「GroupBuyActivityDiscountVO、SkuVO」完成
+25-05-29.15:57:20.946 [main            ] INFO  MarketNode             - 拼团商品查询试算服务-MarketNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:57:20.946 [main            ] INFO  NCalculateService      - 优惠策略折扣计算:0
+25-05-29.15:57:20.946 [main            ] INFO  EndNode                - 拼团商品查询试算服务-EndNode userId:xyf requestParameter:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:57:20.948 [main            ] INFO  IIndexGroupBuyMarketServiceTest - 请求参数:{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xyf"}
+25-05-29.15:57:20.955 [main            ] INFO  IIndexGroupBuyMarketServiceTest - 返回结果:{"deductionPrice":1.99,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+25-05-29.15:57:20.966 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+25-05-29.15:57:20.980 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
