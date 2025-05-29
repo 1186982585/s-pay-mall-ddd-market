@@ -14,6 +14,6 @@ public interface ISkuDao {
 
     Sku querySkuByGoodsId(String goodsId);
 
-    GroupBuyActivity queryValidGroupBuyActivity(GroupBuyActivity groupBuyActivityReq);
+//    GroupBuyActivity queryValidGroupBuyActivity(GroupBuyActivity groupBuyActivityReq);
 
 }
