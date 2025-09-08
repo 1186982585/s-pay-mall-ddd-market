@@ -25,4 +25,5 @@ public class QuerySkuVOFromDBThreadTask implements Callable<SkuVO> {
     public SkuVO call() throws Exception {
         return activityRepository.querySkuByGoodsId(goodsId);
     }
+
 }
