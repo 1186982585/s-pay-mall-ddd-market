@@ -4,6 +4,8 @@ import com.example.domain.trade.adapter.repository.ITradeRepository;
 import com.example.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import com.example.domain.trade.model.entity.*;
 import com.example.domain.trade.service.ITradeSettlementOrderService;
+import com.example.domain.trade.service.settlement.factory.TradeSettlementRuleFilterFactory;
+import com.example.types.design.framework.link.model2.chain.BusinessLinkedList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -22,36 +24,64 @@ public class TradeSettlementOrderService implements ITradeSettlementOrderService
     @Resource
     private ITradeRepository repository;
 
+    @Resource
+    BusinessLinkedList<TradeSettlementRuleCommandEntity,
+            TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity> tradeSettlementRuleFilter;
+
     @Override
-    public TradePaySettlementEntity settlementMarketPayOrder(TradePaySuccessEntity tradePaySuccessEntity) {
+    public TradePaySettlementEntity settlementMarketPayOrder(TradePaySuccessEntity tradePaySuccessEntity) throws Exception {
 
         log.info("tradePaySuccessEntity:{}", tradePaySuccessEntity);
         // 1.查询拼团信息
-        MarketPayOrderEntity marketPayOrderEntity = repository.queryNoPayMarketPayOrderByOutTradeNo(tradePaySuccessEntity.getUserId(), tradePaySuccessEntity.getOutTradeNo());
-        // 处于锁单状态才能查到，因为查找逻辑要求status=0.超时也查不到
-        if (null == marketPayOrderEntity) {
-            return null;
-        }
-        log.info("marketPayOrderEntity:{}", marketPayOrderEntity);
+//        MarketPayOrderEntity marketPayOrderEntity = repository.queryNoPayMarketPayOrderByOutTradeNo(tradePaySuccessEntity.getUserId(), tradePaySuccessEntity.getOutTradeNo());
+//        // 处于锁单状态才能查到，因为查找逻辑要求status=0.超时也查不到
+//        if (null == marketPayOrderEntity) {
+//            return null;
+//        }
+//        log.info("marketPayOrderEntity:{}", marketPayOrderEntity);
+        TradeSettlementRuleFilterBackEntity tradeSettlementRuleFilterBackEntity = tradeSettlementRuleFilter.apply(
+                TradeSettlementRuleCommandEntity.builder()
+                        .source(tradePaySuccessEntity.getSource())
+                        .channel(tradePaySuccessEntity.getChannel())
+                        .userId(tradePaySuccessEntity.getUserId())
+                        .outTradeNo(tradePaySuccessEntity.getOutTradeNo())
+                        .outTradeTime(tradePaySuccessEntity.getOutTradeTime())
+                        .build(),
+                new TradeSettlementRuleFilterFactory.DynamicContext());
+
+        String teamId = tradeSettlementRuleFilterBackEntity.getTeamId();
+
 
         // 2.查询拼团组队信息
         // 两种方式，一种根据参与时间(锁单)，一种根据支付时间
-        GroupBuyTeamEntity groupBuyTeamEntity = repository.queryGroupBuyTeamByTeamId(marketPayOrderEntity.getTeamId());
+//        GroupBuyTeamEntity groupBuyTeamEntity = repository.queryGroupBuyTeamByTeamId(marketPayOrderEntity.getTeamId());
+        GroupBuyTeamEntity groupBuyTeamEntity = GroupBuyTeamEntity.builder()
+                .teamId(tradeSettlementRuleFilterBackEntity.getTeamId())
+                .activityId(tradeSettlementRuleFilterBackEntity.getActivityId())
+                .targetCount(tradeSettlementRuleFilterBackEntity.getTargetCount())
+                .completeCount(tradeSettlementRuleFilterBackEntity.getCompleteCount())
+                .lockCount(tradeSettlementRuleFilterBackEntity.getLockCount())
+                .status(tradeSettlementRuleFilterBackEntity.getStatus())
+                .validStartTime(tradeSettlementRuleFilterBackEntity.getValidStartTime())
+                .validEndTime(tradeSettlementRuleFilterBackEntity.getValidEndTime())
+                .build();
 
+        // 3.构建聚合对象
         GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate = GroupBuyTeamSettlementAggregate.builder()
                 .userEntity(UserEntity.builder().userId(tradePaySuccessEntity.getUserId()).build())
                 .groupBuyTeamEntity(groupBuyTeamEntity)
                 .tradePaySuccessEntity(tradePaySuccessEntity)
                 .build();
 
+        // 4.拼团交易结算
         repository.settlementMarketPayOrder(groupBuyTeamSettlementAggregate);
-        // 3.
 
+        // 5.返回结算信息
         return TradePaySettlementEntity.builder()
                 .source(tradePaySuccessEntity.getSource())
                 .channel(tradePaySuccessEntity.getChannel())
                 .userId(tradePaySuccessEntity.getUserId())
-                .teamId(marketPayOrderEntity.getTeamId())
+                .teamId(tradeSettlementRuleFilterBackEntity.getTeamId())
                 .activityId(groupBuyTeamEntity.getActivityId())
                 .outTradeNo(tradePaySuccessEntity.getOutTradeNo())
                 .build();

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * @Author cxj
  * @Date 2025/11/12 22:18
@@ -14,11 +16,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TradeRuleCommandEntity {
+public class TradeSettlementRuleCommandEntity {
 
+    /** 渠道 */
+    private String source;
+    /** 来源 */
+    private String channel;
     /** 用户ID */
     private String userId;
-    /** 活动ID */
-    private Long activityId;
+    /** 外部交易单号 */
+    private String outTradeNo;
+    /** 外部交易时间 */
+    private Date outTradeTime;
 
 }

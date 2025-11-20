@@ -1,7 +1,11 @@
 package com.example.infrastructure.dcc;
 
 import com.example.types.annotations.DCCValue;
+import com.example.types.common.Constants;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Author cxj
@@ -20,6 +24,9 @@ public class DCCService {
     @DCCValue("cutRange:100")
     private String cutRange;
 
+    @DCCValue("scBlackList:s02c02")
+    private String scBlackList;
+
     public boolean isDowngradeSwitch() {
         return "1".equals(downgradeSwitch);
     }
@@ -36,6 +43,11 @@ public class DCCService {
             return true;
         }
         return false;
+    }
+
+    public boolean isSCBlackIntercept(String source, String channel) {
+        List<String> list = Arrays.asList(scBlackList.split(Constants.SPLIT));
+        return list.contains(source + channel);
     }
 
 }
