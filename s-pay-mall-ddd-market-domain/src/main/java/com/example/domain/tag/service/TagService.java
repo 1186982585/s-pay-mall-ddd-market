@@ -36,7 +36,9 @@ public class TagService implements ITagService{
 //            add("xiaofuge2");
 //            add("xfg01");
             add("xfg02");
-//            add("xfg03");
+            add("xfg03");
+            add("xfg04");
+            add("xfg05");
 //            add("liergou");
         }};
 

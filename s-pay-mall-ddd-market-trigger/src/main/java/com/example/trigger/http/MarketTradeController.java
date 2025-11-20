@@ -14,7 +14,7 @@ import com.example.domain.trade.model.entity.PayActivityEntity;
 import com.example.domain.trade.model.entity.PayDiscountEntity;
 import com.example.domain.trade.model.entity.UserEntity;
 import com.example.domain.trade.model.valobj.GroupBuyProgressVO;
-import com.example.domain.trade.service.ITradeOrderService;
+import com.example.domain.trade.service.ITradeLockOrderService;
 import com.example.types.enums.ResponseCode;
 import com.example.types.exception.AppException;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +39,7 @@ public class MarketTradeController implements IMarketTradeService {
     private IIndexGroupBuyMarketService indexGroupBuyMarketService;
 
     @Resource
-    private ITradeOrderService tradeOrderService;
+    private ITradeLockOrderService tradeOrderService;
 
     /**
      * 拼团营销锁单

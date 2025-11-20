@@ -11,7 +11,7 @@ import com.example.domain.trade.model.valobj.GroupBuyProgressVO;
  * @Date 2025/9/9 20:33
  * @Description:
  */
-public interface ITradeOrderService {
+public interface ITradeLockOrderService {
 
     MarketPayOrderEntity queryNoPayMarketOrderByOutTradeNo(String userId, String outTradeNo);
 

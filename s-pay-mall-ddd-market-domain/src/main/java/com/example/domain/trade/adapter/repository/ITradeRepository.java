@@ -1,7 +1,9 @@
 package com.example.domain.trade.adapter.repository;
 
 import com.example.domain.trade.model.aggregate.GroupBuyOrderAggregate;
+import com.example.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import com.example.domain.trade.model.entity.GroupBuyActivityEntity;
+import com.example.domain.trade.model.entity.GroupBuyTeamEntity;
 import com.example.domain.trade.model.entity.MarketPayOrderEntity;
 import com.example.domain.trade.model.valobj.GroupBuyProgressVO;
 
@@ -22,4 +24,8 @@ public interface ITradeRepository {
     GroupBuyActivityEntity queryGroupBuyActivityEntityByActivityId(Long activityId);
 
     Integer queryOrderCountByActivityId(Long activityId, String userId);
+
+    GroupBuyTeamEntity queryGroupBuyTeamByTeamId(String teamId);
+
+    void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate);
 }
