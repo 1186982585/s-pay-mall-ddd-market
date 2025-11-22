@@ -34,11 +34,11 @@ public class TagService implements ITagService{
         // 3. 数据写入记录
         List<String> userIdList = new ArrayList<String>() {{
 //            add("xiaofuge2");
-//            add("xfg01");
-            add("xfg02");
-            add("xfg03");
-            add("xfg04");
-            add("xfg05");
+            add("xfg01");
+//            add("xfg02");
+//            add("xfg03");
+//            add("xfg04");
+//            add("xfg05");
 //            add("liergou");
         }};
 

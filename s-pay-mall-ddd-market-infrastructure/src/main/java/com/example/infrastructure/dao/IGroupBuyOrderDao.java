@@ -3,6 +3,9 @@ package com.example.infrastructure.dao;
 import com.example.infrastructure.dao.po.GroupBuyOrder;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+import java.util.Set;
+
 /**
  * @Author cxj
  * @Date 2025/9/9 20:15
@@ -24,4 +27,12 @@ public interface IGroupBuyOrderDao {
     int updateAddCompleteCount(String teamId);
 
     int updateOrderStatus2COMPLETE(String teamId);
+
+    List<GroupBuyOrder> queryGroupBuyProgressByTeamIds(Set<String> teamIds);
+
+    Integer queryAllTeamCount(Set<String> teamIds);
+
+    Integer queryAllTeamCompleteCount(Set<String> teamIds);
+
+    Integer queryAllUserCount(Set<String> teamIds);
 }
